@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Component, Inject } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   title = 'Portfolio';
+  constructor(@Inject(DOCUMENT) private document: Document) { }
+  goToLinktree(): void { this.document.location.href = 'https://linktr.ee/archit6'; }
 }
