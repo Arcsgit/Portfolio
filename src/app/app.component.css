@@ -1,5 +1,5 @@
 /* Navbar */
-nav {
+.navbar {
     padding: 0 4% 1.5% 4%;
     box-shadow: rgba(178, 255, 62, 0.35) 0px 5px, 
                 rgba(178, 255, 62, 0.3) 0px 10px, 
@@ -32,6 +32,7 @@ nav {
     transition: var(--btn-transition);
     overflow: hidden;
     box-shadow: var(--btn-shadow);
+    border-radius: 20px;
 }
 .ui-btn span {
     letter-spacing: var(--btn-letter-spacing);
@@ -103,16 +104,50 @@ nav {
     transition-property: width, left;
 }
 
+.hamburger {
+    width: 100%;
+    height: fit-content;
+    
+}
+.hamBtn {
+    width: 100%;
+    height: fit-content;
+    left: 90%;
+    position: relative;
+}
+.hamLine {
+    height: 2px;
+    border-radius: 2px;
+    background-color: whitesmoke;
+    width: 25px;
+}
+.hamLinks {
+    position: relative;
+    top: -500px;
+    margin: 5px 0;
+    display: flex;
+    height: 20px;
+    padding: 18px 0;
+    box-shadow: rgba(255, 255, 255, 0.12) 0px 1px 3px, rgba(255, 255, 255, 0.24) 0px 1px 2px;
+}
+.hamLinks button {
+    color: white;
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+
+
 /* Header */
 .header {
   width: 60%;
   margin: 0 20%;
   margin-top: 4%;
-  height: 28vh;
+  height: fit-content;
   border-radius: 50px;
   box-shadow: rgb(178, 255, 62) 0px 2px 4px 1px;
   text-align: center;
-  padding: 3% 2% 0% 2%;
+  padding: 2.5% 2% 2% 2%;
 }
 /* Spinning animation */
 .loaderAnimation {
@@ -120,6 +155,7 @@ nav {
     justify-content: center;
     align-items: center;
     cursor: none;
+    border-radius: 20%;
 }
 .container {
     --uib-size: 4.5rem;
@@ -208,17 +244,19 @@ nav {
     width: 90%;
     margin: 5% 5%;
     height: fit-content;
+    align-items: center;
 }
 .subMain { width: 43%; }
 
 /* Contact section */
 #main1 {
-  margin-right: 7%;
-  height: fit-content;
-  text-align: center;
-  border-radius: 10px;
-  padding: 2%;
-  box-shadow: rgba(178, 255, 62) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    min-width: 0;
+    margin-right: 7%;
+    height: fit-content;
+    text-align: center;
+    border-radius: 10px;
+    padding: 2%;
+    box-shadow: rgba(178, 255, 62) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 /* LinkTree button */
 .linktree {
@@ -233,8 +271,11 @@ nav {
     margin: 0;
     cursor: none;
 }
-.linktree a {
-    margin-top: 5px;
+#arrowsvg {
+    color: #ffffcb; 
+    left: -21%; 
+    position: relative; 
+    cursor: none;
 }
 .contactBtn {
     --green: #1BFD9C;
@@ -251,8 +292,6 @@ nav {
     background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
     box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
 }
-.contactBtn a { text-decoration: none; color: var(--green); }
-.contactBtn a:hover { text-decoration: none; color: var(--green); }
 .contactBtn:hover { color: #82ffc9; box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2); }
 .contactBtn:before {
     content: "";
@@ -359,34 +398,60 @@ textarea::placeholder { font-size: 1.2rem; }
 }
 
 /* Middle animated line */
-.line {
+.verticaLine {
     position: relative;
     width: 5px;
-    height: 40rem;
+    height: 80vh;
     background: linear-gradient(transparent, #28AE60, transparent);
     overflow: hidden;
-    cursor: s-resize;
+    cursor: none;
 }
-.line::after {
+.verticaLine::after {
     content: '';
     position: absolute;
     translate: 0px -200px;
     width: 100%;
-    height: 150px;
+    height: 40vh;
     background: linear-gradient(to right, transparent, #212121, transparent);
-    animation: slide 2s infinite;
+    animation: slideStraight 2s infinite;
 }
-@keyframes slide { 100% { translate: 0 40rem; } }
-
+@keyframes slideStraight { 100% { translate: 0 80vh; } }
+.horizontaLine {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #28AE60, transparent);
+    overflow: hidden;
+    display: none;
+}
+.horizontaLine::after {
+    content: '';
+    position: absolute;
+    translate: -200px 0;
+    width: 90%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, #212121, transparent);
+    animation: slideSide 2s infinite;
+}
+@keyframes slideSide { 100% { translate: 100% 0; }}
 /* Skills section */
 #main2 {
-    margin-left: 7%;
-    height: 50vh;
+    min-width: 0;
+    /* margin-left: 7%; */
+    height: fit-content;
     text-align: center;
     border-radius: 10px;
     padding: 2%;
-    margin-top: 6.5%;
+    padding-top: 1%;
+    margin: 6% 0 6% 7%;
     box-shadow: rgba(178, 255, 62) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+#main2 h1 {
+    font-family: 'Supreme', sans-serif;
+    color: #ffffcb;
+    font-size: 3rem;
+    margin: 0;
+    cursor: none;
 }
 .skillbtn {
     --main-color: rgb(46, 213, 115);
@@ -424,7 +489,8 @@ textarea::placeholder { font-size: 1.2rem; }
                 rgba(178, 255, 62, 0.05) 0px -25px;
     border-radius: 40% 40% 0 0;
     display: flex;
-    align-items: center; 
+    align-items: center;
+    justify-content: center; 
 }
 .footer h1 {
     font-size: calc(10px + 0.390625vw);
@@ -436,8 +502,6 @@ textarea::placeholder { font-size: 1.2rem; }
     padding: 0;
     display: flex;
     align-items: center;
-    position: absolute;
-    left: 39%;
     cursor: none;
 }
 
@@ -449,9 +513,97 @@ textarea::placeholder { font-size: 1.2rem; }
     position: absolute;
     top: 23%;
     padding: 5px 0;
+    padding-top: 8px;
     left: 2px;
 }
 .social a { color: white; text-decoration: none; }
 .social a svg { margin: 0 12px; cursor: pointer; }
 .social a:hover { transform: scale(1.2); transition: transform 0.3s ease-out; }
 
+
+@media only screen and (max-width: 600px) {
+    .ui-btn {
+        padding: 10px;
+        margin: 0 auto 5px auto;
+    }
+    .social {
+        display: none;
+    }
+    .links {
+        display: none;
+    }
+    .main {
+        display: block;
+    }
+    .verticaLine {
+        display: none;
+    }
+    .horizontaLine {
+        display: block;
+    }
+    .header {
+        width: 94%;
+        margin: 10% auto;
+        padding: 8% 2% 6% 2%;
+    }
+    #headerName {
+        font-size: 3.2rem;
+        margin: 0;
+    }
+    #headerDesc {
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+    .container {
+        --uib-size: 3rem;
+    }
+    .subMain {
+        width: 93%;
+    }
+    #main1 {
+        margin: 10% 0 8% 0;
+        padding: 4%;
+    }
+    #main2 {
+        margin: 12% auto;
+        padding: 4%;
+        margin-top: 8%;
+    }
+    .form {
+        margin: 3% 0;
+    }
+    .linktree h1 {
+        font-size: 2rem;
+        align-items: center;
+        padding: 5px 0;
+    }
+    .contactBtn {
+        padding: 2% 10%;
+    }
+    #arrowsvg {
+        left: -28%;
+    }
+    .skillbtn {
+        font-size: .7rem;
+        font-weight: 600;
+        padding: .8rem 2rem;
+    }
+    .footer {
+        height: 6vh;
+    }
+    .footer h1 {
+        font-size: calc(12px + 0.390625vw);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #headerName {
+        font-size: 3rem;
+    }
+    #headerDesc {
+        font-size: 1rem;
+    }
+    .container {
+        --uib-size: 2.5rem;
+    }
+}
