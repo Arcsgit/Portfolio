@@ -1,0 +1,141 @@
+<app-navbar></app-navbar>
+
+<section class="contact-hero">
+  <h1 class="hero-title scroll">Let's Connect</h1>
+</section>
+
+<section class="contact-main">
+  <div class="contact-container">
+    <div class="contact-form-section">
+      <div class="section-header">
+        <h2>Send a Message</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+        <div class="form-group">
+          <label>
+            <span class="label-text">Name</span>
+            <input type="text" ngModel required name="Name" class="form-input" placeholder="Your full name" required>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <span class="label-text">Email</span>
+            <input type="email" ngModel required name="Email" class="form-input" placeholder="your.email@example.com"
+              required>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <span class="label-text">Subject</span>
+            <input type="text" ngModel required name="Subject" class="form-input" placeholder="What's this about?">
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <span class="label-text">Message</span>
+            <textarea ngModel required name="Message" class="form-textarea" rows="6"
+              placeholder="Type your message here..." required></textarea>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">
+          <span>{{ isLoading ? 'Sending...' : 'Send Message' }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+          </svg>
+        </button>
+
+        <div class="toast-container">
+          <div class="toast success" *ngIf="status === 'success'">
+            <span class="toast-text">Message sent successfully</span>
+          </div>
+
+          <div class="toast error" *ngIf="status === 'error'">
+            <span class="toast-text">Failed to send message</span>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="contact-info-section">
+      <div class="info-cards">
+        <div class="info-card scroll">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4-8 5-8-5V6l8 5 8-5z" />
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3>Email</h3>
+            <p>{{ contactInfo.email }}</p>
+          </div>
+        </div>
+
+        <div class="info-card scroll">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3>Response Time</h3>
+            <p>{{ contactInfo.responseTime }}</p>
+          </div>
+        </div>
+
+        <div class="info-card scroll">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m4.2-11.5L13 11.7V6h-2v7l4.5 2.7z" />
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3>Timezone</h3>
+            <p>{{ contactInfo.timezone }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="social-section">
+        <h3 class="social-title">Connect on Social</h3>
+        <div class="social-links scroll">
+          <a *ngFor="let social of socialLinks" [href]="social.url" target="_blank" class="social-link scroll"
+            [attr.aria-label]="social.name">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path *ngIf="!social.stroke" fill="currentColor" [attr.d]="social.icon" />
+              <path *ngIf="social.stroke" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="1.5" [attr.d]="social.icon" color="currentColor" />
+            </svg>
+            <span>{{ social.name }}</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Linktree CTA -->
+      <div class="linktree-cta scroll">
+        <button class="linktree-btn" (click)="goToLinktree()">
+          <img class="btn-icon" src="https://cdn.simpleicons.org/linktree/39e09b" alt="Linktree" />
+          <div class="btn-content">
+            <span class="btn-title">All Links</span>
+            <span class="btn-subtitle">Visit my Linktree</span>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

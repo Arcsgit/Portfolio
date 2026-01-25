@@ -1,0 +1,49 @@
+<div class="navbar" [class.menu-open]="isMenuOpen">
+  <button class="ui-btn" routerLink="/">
+    <a><span>architshet</span></a>
+  </button>
+
+  <div class="links desktop-links">
+    <button routerLink="">// Home..</button>
+    <button routerLink="/projects">// Projects..</button>
+    <button routerLink="/contact">// Contact..</button>
+  </div>
+
+  <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+    <span class="menu-icon">
+      <span class="line"></span>
+      <span class="line"></span>
+    </span>
+  </button>
+</div>
+
+<div class="mobile-menu" [class.active]="isMenuOpen">
+  <div class="mobile-menu-overlay" (click)="closeMenu()"></div>
+  <div class="mobile-menu-content">
+    <nav class="mobile-links">
+      <a routerLink="" (click)="closeMenu()" class="mobile-link">
+        <span class="link-number">01</span>
+        <span class="link-text">Home</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+        </svg>
+      </a>
+
+      <a routerLink="/projects" (click)="closeMenu()" class="mobile-link">
+        <span class="link-number">02</span>
+        <span class="link-text">Projects</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+        </svg>
+      </a>
+
+      <a routerLink="/contact" (click)="closeMenu()" class="mobile-link">
+        <span class="link-number">03</span>
+        <span class="link-text">Contact</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+        </svg>
+      </a>
+    </nav>
+  </div>
+</div>
