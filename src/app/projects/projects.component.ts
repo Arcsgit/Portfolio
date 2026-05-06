@@ -39,12 +39,19 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       title: 'GPU Resource Management',
       description: "Built for KLE Technological University's Central Computing Facility to streamline access to high-performance computing resources",
       techStack: ['Spring Boot', 'Angular', 'SMTP', 'Oracle DB'],
-      github: 'https://github.com/Arcsgit/gpu-access-management',
-      tag: "in progress",
+      github: 'https://github.com/Arcsgit/gpu-resource-management-system',
       image: 'assets/landing-pages/access-mgmt.png'
     },
     {
       id: 3,
+      title: 'Synthetic Log Generation System',
+      description: 'FastAPI-based REST service that generates realistic, production-grade Google Cloud Platform audit logs',
+      techStack: ['Python', 'FastAPI', 'Rust + Axum'],
+      github: 'https://github.com/Arcsgit/gcp-synthetic-log-generator.git',
+      image: 'assets/landing-pages/gcp-log.png'
+    },
+    {
+      id: 4,
       title: 'RapidRoute',
       description: 'A modern route optimization platform built with Angular, featuring real-time tracking, responsive design, and advanced algorithm implementation for efficient delivery management.',
       techStack: ['Angular', 'TypeScript', 'HTML', 'CSS',],
@@ -53,7 +60,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       image: 'assets/landing-pages/rapidroute.png'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Portfolio Website',
       description: 'Personal portfolio with custom animations, dark theme, and interactive UI elements showcasing projects and skills.',
       techStack: ['Angular', 'TypeScript', 'GSAP'],
